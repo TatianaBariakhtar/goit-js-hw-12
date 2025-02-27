@@ -43,4 +43,7 @@ button {
 .hidden {
   display: none;
 }
+.is-hidden {
+  display: none;
+}
 

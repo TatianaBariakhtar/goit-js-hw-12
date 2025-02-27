@@ -17,9 +17,18 @@ export async function fetchImages(query, page = 1, perPage = 40) {
       },
     });
 
-    return response.data;
+    
+    if (response.data.hits.length === 0) {
+      return { images: [], totalHits: 0 };
+    }
+
+    return {
+      images: response.data.hits,  
+      totalHits: response.data.totalHits, 
+    };
   } catch (error) {
-    console.error('Error fetching images:', error);
-    return null;
+    console.error('❌ Error fetching images:', error);
+    return { images: [], totalHits: 0 };
   }
 }
+
