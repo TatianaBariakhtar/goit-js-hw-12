@@ -11,12 +11,12 @@ let searchQuery = '';
 let currentPage = 1;
 const perPage = 40;
 
-// Спочатку ховаємо кнопку
+
 loadMoreBtn.classList.add('is-hidden');
 
 /**
  * Оновлює видимість кнопки Load more
- * @param {number} totalHits - Загальна кількість зображень
+ * @param {number} totalHits 
  */
 function updateLoadMoreButton(totalHits) {
   if (totalHits <= perPage * currentPage) {
@@ -26,9 +26,7 @@ function updateLoadMoreButton(totalHits) {
   }
 }
 
-/**
- * Виконує плавний скролінг після завантаження нових картинок
- */
+
 function smoothScroll() {
   const galleryCards = document.querySelectorAll('.gallery-item');
   if (galleryCards.length > 0) {
@@ -40,9 +38,7 @@ function smoothScroll() {
   }
 }
 
-/**
- * Обробник події на сабміт форми пошуку
- */
+
 form.addEventListener('submit', async event => {
   event.preventDefault();
   searchQuery = event.target.elements.searchQuery.value.trim();
@@ -71,9 +67,7 @@ form.addEventListener('submit', async event => {
   }
 });
 
-/**
- * Обробник події на кнопку Load more
- */
+
 loadMoreBtn.addEventListener('click', async () => {
   currentPage += 1;
 
@@ -94,6 +88,8 @@ loadMoreBtn.addEventListener('click', async () => {
     iziToast.error({ message: "Something went wrong! Please try again later." });
   }
 });
+
+
 
 
 
