@@ -14,14 +14,22 @@ const perPage = 40;
 
 loadMoreBtn.classList.add('is-hidden');
 
-
 function updateLoadMoreButton(totalHits) {
   if (totalHits <= perPage * currentPage) {
     loadMoreBtn.classList.add('is-hidden');
+    
+  
+    iziToast.info({ 
+      message: "We're sorry, but you've reached the end of search results.",
+      position: "topRight",
+    });
+
   } else {
     loadMoreBtn.classList.remove('is-hidden');
   }
 }
+
+
 
 
 function smoothScroll() {
